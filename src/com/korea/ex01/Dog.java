@@ -1,15 +1,5 @@
 package com.korea.ex01;
 
-public class Dog extends Animal {
-
-	public Dog() {
-		this.kind="Æ÷À¯·ù";
-	}
-	
-	@Override
-	public void sound() {
-		System.out.println("¸Û¸Û");
-
-	}
+public class Dog extends Animal{
 
 }

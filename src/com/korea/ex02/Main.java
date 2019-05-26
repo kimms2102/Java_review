@@ -3,30 +3,22 @@ package com.korea.ex02;
 public class Main {
 
 	public static void main(String[] args) {
-		RemotControler rc= new Television();
-	//	rc = new Television();
-		rc.turnOn();
-		rc.setVolume(5);
-		rc.turnOff();
+		Account acc = new Account();
 		
-		rc = new Audio();
-		rc.turnOn();
-		rc.setVolume(5);
-		rc.turnOff();
+		//예금
+		acc.deposit(10000);
+		System.out.println("예금액:"+acc.getBalance());
 		
-		System.out.println("--------------------");
-		
-		SmartTV stv = new SmartTV();
-		stv.turnOn();
-		stv.setVolume(5);
-		stv.search("쇼미더머니");
-		stv.turnOff();
-		
-		RemotControler rc2= new SmartTV();
-		rc2.turnOn();
-		rc2.setVolume(5);
-		//rc2.search("쇼미더머니");부모에 search메소드가 없기때문에 불가능
-		rc2.turnOff();
+		//출금
+		try {
+			acc.withdraw(30000);
+		} catch (BalanceInsufficientException e) {
+			String message = e.getMessage();//getMessage중요
+			System.out.println(message);
+			System.out.println();
+			e.printStackTrace();//printStackTrace어디서 예외가 발생했는지 추적하는코드
+		}
+
 	}
 
 }
